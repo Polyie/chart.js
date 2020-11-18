@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <title>Chartjs</title>
+
+    <style type="text/css">
+        #posi {
+            position:absolute;
+            left:30%;
+            }
+        body{
+            background-color: #CDC9C9;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="posi" style="width: 700px; height: 700px;"> 
+        <canvas id="charj" width="700" height="700"></canvas>
+    </div>
+    
+    <script>
+        let chart = new Chart (document.getElementById("charj"), {
+            type: 'polarArea',
+            //line, bar, pie, 
+            //radar, doughnut, polarArea,
+            data: {
+                labels: ["jav", "fev", "mar", "abr", "mai", "jul", "ago", "set", "out", "nov", "dez"],
+                datasets: [
+                    {
+                        label: '# arvores cortadas no RS',
+                        data:[40,27,25,30,52,35,14,43,70,88,60,44],
+                        
+                        backgroundColor:[
+                        '#006400','#556B2F','#8FBC8F','#2E8B57','#3CB371','#20B2AA','#98FB98','#3CB371','#32CD32','#6B8E23','#228B22','#9ACD32'
+                        ],
+
+                        borderColor: [
+                            '#2E8B57','#2E8B57','#2E8B57','#2E8B57','#2E8B57','#2E8B57','#2E8B57','#2E8B57','#2E8B57','#2E8B57','#2E8B57','#2E8B57'
+                        ],
+                        borderWidth: 0.1,
+
+                    },
+                    {
+                        label: '# Arvores plantadas no RS',
+                        data:[15,20,23,14,17,29,30,22,35,40,45,60],
+                        backgroundColor:[
+                        '#90EE90','#90EE90','#90EE90','#90EE90','#90EE90','#90EE90','#90EE90','#90EE90','#90EE90','#90EE90','#90EE90','#90EE90',
+
+                        ],
+                    }
+                ]
+            },
+            options: {
+                title: {
+                    text: 'Florestas',
+                    display: true
+                },
+                scales: {
+                    yAxes: [
+                        {
+                            ticks: {
+                                beginAtZero:true
+                            }
+                        }
+                    ]
+                }
+            }
+        })
+    </script>
+</body>
+</html>
